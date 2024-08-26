@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Connector</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      background-color: #D0F0C0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: #333;
+      padding: 20px 0;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto;
+      max-width: 1200px;
+      padding: 0 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 100px;
+      height: auto;
+    }
+
+    .logo span {
+      font-size: 24px;
+      font-weight: bold;
+      margin-left: 10px;
+      color: #fff;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    li {
+      margin-left: 30px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+
+    a:hover {
+      background-color: #444;
+    }
+
+    .home-link { background-color: #007bff; }
+    .about-link { background-color: #17a2b8; }
+    .resources-link { background-color: #ffc107; }
+    .contact-link { background-color: #dc3545; }
+    .login-link { background-color: #6c757d; }
+    .signup-link { background-color: #343a40; }
+
+    .login-link:hover { background-color: #5a6268; }
+    .signup-link:hover { background-color: #23272b; }
+
+    .search-container {
+      padding: 20px;
+      background-color: #fff;
+      margin: 20px auto;
+      max-width: 1200px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-container input[type="text"] {
+      width: calc(100% - 130px);
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .search-container input[type="submit"] {
+      background-color: #333;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .search-container input[type="submit"]:hover {
+      background-color: #007bff;
+    }
+
+    .content {
+      background-color: #fff;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 5px;
+      max-width: 1200px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      background-color: #007bff;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
+    }
+
+    .service {
+      padding: 16px;
+      background-color: #fff;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 100%;
+    }
+
+    .service img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .service h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .service p {
+      font-size: 14px;
+    }
+
+    .footer {
+      background-color: #f2f2f2;
+      padding: 20px 0;
+      text-align: center;
+      color: #333;
+      margin-top: 20px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      font-size: 24px;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a.facebook { color: #1877f2; }
+    .social-icons a.whatsapp { color: #25D366; }
+    .social-icons a.instagram { color: #C13584; }
+    .social-icons a.twitter { color: #1DA1F2; }
+
+    .social-icons a:hover {
+      opacity: 0.8;
+    }
+
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .mySlides {
+      display: none;
+      animation: fade 5s infinite;
+    }
+
+    .mySlides img {
+      width: 100%;
+      height: auto;
+    }
+
+    @keyframes fade {
+      0% { opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    .sr-only{
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      clip-path: insect(50%);
+      white-space: nowrap;
+    }
+    #services {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">
+            <img src="/home/bryan/Desktop/WhatsApp Image 2024-07-26 at 00.31.05.jpeg" alt="Health Connect Logo">
+            <span>HEALTH CONNECT</span>
+        </div>
+        <ul id="nav-links">
+          <li><a href="about.html" class="about-link" title="About Us">ABOUT US</a></li>
+          <li><a href="resource.html" class="resources-link" title="Resource Page">RESOURCE PAGE</a></li>
+          <li><a href="contact.html" class="contact-link" title="Contact Us">CONTACT US</a></li>
+          <li><a href="login.html" class="login-link" title="Login Page">LOGIN PAGE</a></li>
+          <li><a href="signup.html" class="signup-link" title="Sign Up">SIGN UP</a></li>
+          <li><a href="otp.html" class="otp-link" title="Enter OTP">OTP</a></li>
+      </ul>
+    </nav>
+</header>
+
+<div class="search-container">
+    <input type="text" id="search-input"placeholder="Enter service name or type...">
+    <input type="submit" id="search-button" value="Search">
+</div>
+<main>
+    <div class="content">
+        <h2 class="title">Welcome to My Health Connector</h2>
+        <p class="description">
+            My Health Connector is a free service that helps you find health and social care services in your local area. We provide information on a wide range of services, including:
+        </p>
+        <button class="button" type="button" onclick="toggleServices()">Browse Services</button>
+        
+        <div class="services-container" id="services">
+          <div class="service">
+            <div class="slideshow-container">
+              <div class="mySlides">
+                <img src="/home/bryan/Desktop/doc.webp" alt="Counselling Image 1">
+              </div>
+              <div class="mySlides">
+                <img src="/home/bryan/Desktop/doctors.jpg" alt="Counselling Image 2">
+              </div>
+              <div class="mySlides">
+                <img src="/home/bryan/Desktop/iStock-489302686-scaled.jpg" alt="Counselling Image 3">
+              </div>
+            </div>
+            <h3>Counselling and Guidance</h3>
+            <p>Get support and advice on a range of issues, including mental health, relationships, and more.</p>
+          </div>
+        </div>
+    </div>
+</main>
+
+<div class="footer">
+  <p>&copy; 2024 Health Connector. All rights reserved.</p>
+  <div class="social-icons">
+    <a href="https://www.facebook.com" target="_blank" rel="noopener" class="facebook" aria-label="Facebook">
+      <i class="fab fa-facebook"></i>
+      <span class="sr-only">Facebook</span>
+    </a>
+    <a href="https://www.whatsapp.com" target="_blank" rel="noopener" class="whatsapp" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+      <span class="sr-only">WhatsApp</span>
+    </a>
+    <a href="https://www.instagram.com" target="_blank" rel="noopener" class="instagram" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+      <span class="sr-only">Instagram</span>
+    </a>
+    <a href="https://www.twitter.com" target="_blank" rel="noopener" class="twitter" aria-label="Twitter">
+      <i class="fab fa-twitter"></i>
+      <span class="sr-only">Twitter</span>
+    </a>
+  </div>
+</div>
+
+<script>
+let slideIndex = 0;
+
+function showSlides() {
+    let slides = document.getElementsByClassName("mySlides");
+
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    slideIndex++;
+    if (slideIndex > slides.length) {
+        slideIndex = 1;
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+
+    setTimeout(showSlides, 5000); 
+}
+
+function toggleServices() {
+    const services = document.getElementById("services");
+    if (services.style.display === "none" || services.style.display === "") {
+        services.style.display = "block";
+    } else {
+        services.style.display = "none";
+    }
+}
+
+document.getElementById("search-button").addEventListener("click", function() {
+    const searchInput = document.getElementById("search-input").value.toLowerCase();
+    const services = document.getElementsByClassName("service");
+
+    for (let i = 0; i < services.length; i++) {
+        const service = services[i];
+        const serviceName = service.getElementsByTagName("h3")[0].innerText.toLowerCase();
+
+        if (serviceName.includes(searchInput)) {
+            service.style.display = "block";
+        } else {
+            service.style.display = "none";
+        }
+    }
+});
+
+showSlides();
+</script>
+</body>
+</html>

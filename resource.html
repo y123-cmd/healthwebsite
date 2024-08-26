@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Resource Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #333;
+            padding: 20px 0;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 2;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
+
+        .logo span {
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 10px;
+            color: #fff;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        li {
+            margin-left: 30px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #444;
+        }
+
+        .home-link { background-color: lightblue; }
+        .about-link { background-color: #17a2b8; }
+        .resources-link { background-color: #ffc107; }
+        .contact-link { background-color: #dc3545; }
+        .signup-link { background-color: #343a40; }
+        .otp-link { background-color: #343a40; }
+
+        .main-content {
+            margin-top: 80px;
+            padding: 20px;
+        }
+
+        .section {
+            padding: 20px;
+            background-color: #C8D6D5;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .section-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .section-content h3 {
+            margin-top: 0;
+        }
+
+        .section-content a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .section-content a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            margin: 0 15px;
+            font-size: 30px;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        .social-icons a.facebook { color: #3b5998; }
+        .social-icons a.whatsapp { color: #25D366; }
+        .social-icons a.instagram { color: #C13584; }
+        .social-icons a.twitter { color: #1DA1F2; }
+
+        .social-icons a:hover {
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="/home/bryan/Desktop/WhatsApp Image 2024-07-26 at 00.31.05.jpeg" alt="Health Connect Logo">
+                <span>HEALTH CONNECT</span>
+            </div>
+            <nav>
+                <ul id="nav-links">
+                    <li><a href="homepage.html" class="home-link">HOME PAGE</a></li>
+                    <li><a href="about.html" class="about-link">ABOUT US</a></li>
+                    <li><a href="contact.html" class="contact-link">CONTACT US</a></li>
+                    <li><a href="signup.html" class="signup-link">SIGN UP</a></li>
+                    <li><a href="otp.html" class="otp-link">OTP</a></li>
+                    <li><a href="login.html" class="login-link">LOGIN PAGE</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <section class="section">
+            <h2 class="section-title">Welcome to Healthcare Resource Page!</h2>
+            <div class="section-content">
+                <p>Here you'll find a wealth of resources tailored to meet the healthcare needs of elderly individuals in rural areas. Our goal is to provide reliable, accessible, and localized information to empower you and your loved ones to make informed health decisions.</p>
+                <p>Healthcare providers directory in Kenya, easily find and contact a health provider near you.</p>
+                <p>Accessible and reliable information:</p>
+                <h3>General Practitioners:</h3>
+                <p><strong>Dr. John Kamau:</strong></p>
+                <ul>
+                    <li>Address: 123 Moi Avenue, Nairobi</li>
+                    <li>Telephone: <a href="tel:0794672348">0794672348</a></li>
+                    <li>Hours: Monday-Friday, 9:00am-5:00pm</li>
+                </ul>
+                <p><strong>Dr. Emma Njeri:</strong></p>
+                <ul>
+                    <li>Address: 456 Kenyatta Street, Nakuru</li>
+                    <li>Telephone: <a href="tel:0789345754">0789345754</a></li>
+                    <li>Hours: Monday-Friday, 10:00am-6:00pm</li>
+                </ul>
+                <h3>Pharmacies:</h3>
+                <p><strong>Kenya Health Pharmacy:</strong></p>
+                <ul>
+                    <li>Address: 654 Kimathi Street, Nairobi</li>
+                    <li>Telephone: <a href="tel:0764562349">0764562349</a></li>
+                    <li>Services: Prescription refills, Over-the-counter medications, Health consultation.</li>
+                </ul>
+                <p><strong>Community Care Pharmacy:</strong></p>
+                <ul>
+                    <li>Address: 987 Moi Avenue, Nakuru</li>
+                    <li>Telephone: <a href="tel:0789653548">0789653548</a></li>
+                    <li>Services: Prescription refills, Medical supplies, Wellness programs</li>
+                </ul>
+            </div>
+            <div class="section-content">
+                <h3>Specialists:</h3>
+                <p><strong>Cardiologist: Dr. Lisa Wanjiku</strong></p>
+                <ul>
+                    <li>Location: 789 Uhuru Highway, Kisumu</li>
+                    <li>Email: <a href="mailto:lisawanjiku@healthcare.com">lisawanjiku@healthcare.com</a></li>
+                    <li>Office Hours: Tuesdays, 8:00am-4:00pm</li>
+                </ul>
+                <p><strong>Orthopedist: Dr. Michael Mwangi</strong></p>
+                <ul>
+                    <li>Address: 321 Nkrumah Road, Nairobi</li>
+                    <li>Phone: <a href="tel:0765432327">0765432327</a></li>
+                    <li>Email: <a href="mailto:michaelmwangi@jointcare.com">michaelmwangi@jointcare.com</a></li>
+                    <li>Office Hours: Wednesday & Friday, 9:00am-5:00pm</li>
+                </ul>
+                <p>Dial 911 right now and follow emergency notification protocols. Where do I access the education content?</p>
+            </div>
+        </section>
+
+        <div class="social-icons">
+            <a href="https://www.facebook.com" class="facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me" class="whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com" class="instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com" class="twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Health Connect. All rights reserved.</p>
+    </footer>
+</body>
+</html>
