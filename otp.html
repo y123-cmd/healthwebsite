@@ -72,6 +72,7 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
+            position: relative;
         }
         .otp-box {
             background-color: #C8D6D5;
@@ -80,6 +81,8 @@
             width: 300px;
             text-align: center;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
         }
         .otp-message {
             color: #333;
@@ -132,54 +135,32 @@
                 font-size: 18px;
             }
             .confirm-button, .resend-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 10px;
+                padding: 8px 15px;
+                font-size: 16px;
             }
-            .confirm-button:hover, .resend-button:hover {
-    background-color: #0056b3;
-}
-.wave {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: #007bff;
-    border-radius: 50% 50% 0 0;
-    z-index: 0;
-    transform: scaleX(1.5);
-    animation: wave-animation 6s infinite;
-}
-@keyframes wave-animation {
-    0% {
-        transform: translateX(-100%) scaleX(1.5);
-    }
-    100% {
-        transform: translateX(100%) scaleX(1.5);
-    }
-}
-@media (max-width: 600px) {
-    .otp-box {
-        width: 90%;
-        padding: 15px;
-    }
-    .otp-input input {
-        width: 30px;
-        height: 30px;
-        font-size: 18px;
-    }
-    .confirm-button, .resend-button {
-        padding: 8px 15px;
-        font-size: 16px;
-    }
-}
+            .wave {
+                height: 70px;
+            }
+        }
+        .wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: #007bff;
+            border-radius: 50% 50% 0 0;
+            z-index: 0;
+            transform: scaleX(1.5);
+            animation: wave-animation 6s infinite;
+        }
+        @keyframes wave-animation {
+            0% {
+                transform: translateX(-100%) scaleX(1.5);
+            }
+            100% {
+                transform: translateX(100%) scaleX(1.5);
+            }
         }
     </style>
 </head>
@@ -220,33 +201,52 @@
     </div>
 
     <script>
+        let otp = ''; // Store the OTP received from the server
+
         function moveFocus(current) {
             const inputs = document.querySelectorAll('.otp-input input');
-            const currentindex = Array.prototype.indexOf.call(inputs,current);
-        
-            if (current.value.length === 1 && currentindex < inputs.length - 1){
-                inputs[currentindex + 1].focus();
-                 }
-            }
-
-        function verifyOtp() {
-            const inputs = document.querySelectorAll('.otp-input input');
-            let otp = '';
-            inputs.forEach(input => {otp += input.value;
-            });
-
-            if (otp === '123456') { 
-                alert('OTP Verified!');
-                window.location.href = 'success.html'; 
-            } else {
-                alert('Invalid OTP. Please try again.');
+            const currentIndex = Array.prototype.indexOf.call(inputs, current);
             
+            if (current.value.length === 1 && currentIndex < inputs.length - 1) {
+                inputs[currentIndex + 1].focus();
             }
         }
 
+        function verifyOtp() {
+            const inputs = document.querySelectorAll('.otp-input input');
+            let userOtp = '';
+            inputs.forEach(input => userOtp += input.value);
+
+            fetch('/verify-otp', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ otp, userOtp })
+            })
+            .then(response => response.text())
+            .then(message => {
+                alert(message);
+                if (message === 'OTP Verified') {
+                    window.location.href = 'success.html';
+                }
+            })
+            .catch(error => alert('Error verifying OTP'));
+        }
+
         function resendOtp() {
+            const email = prompt('Enter your email:');
+            const phoneNumber = prompt('Enter your phone number:');
             
-            alert('A new OTP has been sent to your email.');
+            fetch('/send-otp', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, phoneNumber })
+            })
+            .then(response => response.json())
+            .then(data => {
+                otp = data.otp; // Save OTP for verification
+                alert('A new OTP has been sent to your email.');
+            })
+            .catch(error => alert('Error resending OTP'));
         }
     </script>
 </body>
