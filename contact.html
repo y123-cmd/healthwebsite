@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Connect - Contact Us</title>
+    <div class="g-recaptcha" data-sitekey="6Le_Bc8qAAAAACgZME18IZfrzk-rtRljWMqnGFR-"></div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #D0F0C0;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background-color: #333;
+            padding: 20px 0;
+            color: #fff;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
+
+        .logo span {
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 10px;
+            color: #fff;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        li {
+            margin-left: 30px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #444;
+        }
+
+        .home-link { background-color: #007bff; }
+        .directory-link { background-color: #28a745; }
+        .about-link { background-color: #17a2b8; }
+        .resources-link { background-color: #ffc107; }
+        .contact-link { background-color: #dc3545; }
+        .login-link { background-color: #6c757d; }
+        .signup-link { background-color: #343a40; }
+
+        .login-link:hover { background-color: #5a6268; }
+        .signup-link:hover { background-color: #23272b; }
+
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-direction: column; 
+        }
+
+        .cta-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 20px auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        .left-side {
+            width: 60%;
+        }
+
+        .right-side {
+            width: 35%;
+        }
+
+        .title, .sub-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #006400;
+        }
+
+        .paragraph {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .info-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .info-item i {
+            font-size: 20px;
+        }
+
+        .footer {
+            background-color: #f2f2f2;
+            padding: 20px 0;
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a.facebook { color: #1877f2; } 
+        .social-icons a.whatsapp { color: #25D366; } 
+        .social-icons a.instagram { color: #C13584; } 
+        .social-icons a.twitter { color: #1DA1F2; } 
+
+        .social-icons a:hover {
+            opacity: 0.8; 
+        }
+
+        .contact-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .contact-form h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0 10px;
+            }
+
+            .left-side, .right-side {
+                width: 100%;
+            }
+
+            ul {
+                flex-direction: column;
+                display: none;
+            }
+
+            ul.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+
+            .hamburger.toggle {
+                background-color: #007bff;
+            }
+        }
+
+        .hamburger {
+            display: none;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        .section-spacing {
+            padding: 60px 20px;
+            background-color: #f9f9f9; 
+        }
+
+        .highlight-get-started {
+            background-color: #d1ecf1; 
+        }
+
+        .highlight-learn-more {
+            background-color: #d4edda; 
+        }
+
+        .highlight {
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .main-title {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">
+            <img src="/home/bryan/Desktop/WhatsApp Image 2024-07-26 at 00.31.05.jpeg" alt="Health Connect Logo">
+            <span>HEALTH CONNECT</span>
+        </div>
+        <ul id="nav-links">
+            <li><a href="homepage.html" class="home-link">HOME PAGE</a></li>
+            <li><a href="about.html" class="about-link">ABOUT US</a></li>
+            <li><a href="resource.html" class="resources-link">RESOURCE PAGE</a></li>
+            <li><a href="login.html" id="unique-login-link" class="login-link">LOGIN PAGE</a></li>
+            <li><a href="signup.html" id="unique-signup-link" class="signup-link">SIGN UP</a></li>
+            <li><a href="otp.html" id="otp-link" class="otp-link">OTP</a></li>
+        </ul>
+        <div id="hamburger" class="hamburger">&#9776;</div>
+    </nav>
+</header>
+<div class="section-spacing">
+    <div id="contact" class="contact-section">
+        <div class="main-content">
+            <div class="left-side">
+                <h2 class="title">Contact Us</h2>
+                <p class="paragraph">We would love to hear from you! Whether you have questions, feedback, or need assistance, feel free to reach out to us.</p>
+                <p class="sub-title">Visit Us:</p>
+                <p class="paragraph">Health Connect Center,<br> 123 Health Street, Wellness City, CA 91000</p>
+                <div class="cta-container">
+                    <a href="#get-started" class="cta-button highlight-get-started">Get Started</a>
+                    <a href="#learn-more" class="cta-button highlight-learn-more">Learn More</a>
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="info-container">
+                    <div class="info-item"><i class="fas fa-phone"></i>+1 234 567 890</div>
+                    <div class="info-item"><i class="fas fa-envelope"></i>info@healthconnect.com</div>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/yourpage" class="facebook" aria-label="Visit our Facebook page"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/1234567890" class="whatsapp" aria-label="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/yourpage" class="instagram" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/yourpage" class="twitter" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contact-form">
+    <h2>Send Us a Message</h2>
+    <form action="process_form.php" method="post">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <div class="g-recaptcha" data-sitekey="6LerkCEqAAAAAFftyW06IL6fpgCUDJcIIoGCArvl"></div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Health Connect. All rights reserved.</p>
+</div>
+
+<script>
+    document.getElementById('hamburger').onclick = function() {
+        var navLinks = document.getElementById('nav-links');
+        navLinks.classList.toggle('active');
+    }
+
+    document.querySelector('form').onsubmit = function(event) {
+        const email = document.getElementById('email').value;
+        const name = document.getElementById('name').value;
+        if (!name || !email) {
+            alert('Please fill out all required fields.');
+            event.preventDefault();
+        }
+    }
+</script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</body>
+</html>

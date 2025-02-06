@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Connector</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #d3d3d3; 
+            color: #333; 
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background-color: #333; 
+            padding: 20px 0;
+            color: #fff;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
+
+        .logo span {
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 10px;
+            color: #fff; 
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        li {
+            margin-left: 30px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff; 
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #444; 
+        }
+
+        .home-link { background-color: #007bff; }
+        .directory-link { background-color: #28a745; }
+        .resources-link { background-color: #ffc107; }
+        .contact-link { background-color: #dc3545; }
+        .login-link { background-color: #6c757d; }
+        .signup-link { background-color: #343a40; }
+
+        .login-link:hover { background-color: #5a6268; }
+        .signup-link:hover { background-color: #23272b; }
+
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .cta-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 20px auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        .left-side {
+            width: 60%;
+        }
+
+        .right-side {
+            width: 35%;
+        }
+
+        .title, .sub-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #006400; 
+        }
+
+        .paragraph {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .info-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            gap: 10px;
+        }
+
+        .info-item i {
+            font-size: 20px;
+        }
+
+        .footer {
+            background-color: #f2f2f2;
+            padding: 20px 0;
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0 10px;
+            }
+
+            .left-side, .right-side {
+                width: 100%;
+            }
+
+            .cta-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            ul {
+                flex-direction: column;
+                display: none;
+            }
+
+            ul.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+
+            .hamburger.toggle {
+                background-color: #007bff;
+            }
+        }
+
+        .hamburger {
+            display: none;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+        .section-spacing {
+            padding: 60px 20px;
+            background-color: #f9f9f9; 
+        }
+
+        .highlight-get-started {
+            background-color: #d1ecf1;
+        }
+
+        .highlight-learn-more {
+            background-color: #d4edda; 
+        }
+
+        .highlight {
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            font-size: 24px;
+            color: #333; 
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a.facebook { color: #1877f2; } 
+        .social-icons a.whatsapp { color: #25D366; } 
+        .social-icons a.instagram { color: #C13584; } 
+        .social-icons a.twitter { color: #1DA1F2; } 
+
+        .social-icons a:hover {
+            opacity: 0.8; 
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">
+            <img src="/home/bryan/Desktop/WhatsApp Image 2024-07-26 at 00.31.05.jpeg" alt="Health Connect Logo">
+            <span>HEALTH CONNECT</span>
+        </div>
+        <ul id="nav-links">
+            <li><a href="homepage.html" class="home-link">HOME PAGE</a></li>
+            <li><a href="resource.html" class="resources-link">RESOURCE PAGE</a></li>
+            <li><a href="contact.html" class="contact-link">CONTACT US</a></li>
+            <li><a href="login.html" id="login-link" class="login-link">LOGIN PAGE</a></li>
+            <li><a href="signup.html" id="signup-link" class="signup-link">SIGN UP</a></li>
+            <li><a href="otp.html" id="otp-link" class="otp-link">OTP</a></li>
+        </ul>
+        <div id="hamburger" class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+</header>
+<main>
+    <section id="home" class="main-content">
+        <div class="left-side">
+            <h2 class="title">WHO WE ARE</h2>
+            <p class="paragraph">We are dedicated to providing accessible and reliable healthcare information to elderly individuals living in rural areas. Our goal is to empower these communities by ensuring they have the knowledge and resources needed to make informed health decisions and improve their overall well-being.</p>
+            <div class="cta-container">
+                <div class="cta-button" id="get-started">
+                    <a href="#mission-vision-story" class="cta-link">Get Started</a>
+                </div>
+                <div class="cta-button" id="learn-more">
+                    <a href="#learn-more-section" class="cta-link">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="right-side">
+            <img src="/home/bryan/Desktop/why-community-health-is-important-for-public-health.jpg" alt="Doctors providing healthcare" height="500" width="800">
+            <div class="info-container">
+                <div class="info-item"><i class="fas fa-phone"></i><span id="call-us">Call Us</span></div>
+                <div class="info-item"><i class="fas fa-envelope"></i><span id="email-us">Email Us</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mission-vision-story" class="section-spacing">
+        <h2 class="sub-title">Mission, Vision, and Our Story</h2>
+        <p class="paragraph">Our mission is to bridge the healthcare gap by connecting elderly individuals in rural areas with vital health resources and support. We envision a world where everyone, regardless of their location, has access to quality healthcare information.</p>
+        <p class="paragraph">Our story began with a simple idea - to make healthcare information accessible to everyone, especially the elderly in underserved areas. Through dedication, innovation, and a commitment to community well-being, Health Connect has grown into a trusted resource for many.</p>
+    </section>
+
+    <section id="learn-more-section" class="section-spacing">
+        <h2 class="sub-title">Learn More About Health Connect</h2>
+        <p class="paragraph">Health Connect provides a platform where the elderly in rural areas can access crucial healthcare information and resources. We work closely with local healthcare providers and community leaders to ensure the information we provide is accurate, relevant, and culturally sensitive. Join us in our mission to make healthcare accessible to everyone.</p>
+    </section>
+</main>
+<footer class="footer">
+    <p>&copy; 2024 Health Connect. All rights reserved.</p>
+    <div class="social-icons">
+        <a href="https://www.facebook.com/your-page" class="facebook" target="_blank" rel="noopener noreferrer" title="Visit our Facebook page">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://wa.me/your-number" class="whatsapp" target="_blank" rel="noopener noreferrer" title="Chat with us on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/your-profile" class="instagram" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://twitter.com/your-handle" class="twitter" target="_blank" rel="noopener noreferrer" title="Follow us on Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('hamburger').addEventListener('click', function () {
+        this.classList.toggle('toggle');
+        document.getElementById('nav-links').classList.toggle('active');
+    });
+
+    document.getElementById('get-started').addEventListener('click', function () {
+        document.getElementById('mission-vision-story').scrollIntoView({ behavior: 'smooth' });
+        highlightSection('mission-vision-story');
+    });
+
+    document.getElementById('learn-more').addEventListener('click', function () {
+        document.getElementById('learn-more-section').scrollIntoView({ behavior: 'smooth' });
+        highlightSection('learn-more-section');
+    });
+
+    function highlightSection(sectionId) {
+        var section = document.getElementById(sectionId);
+        if (sectionId === 'mission-vision-story') {
+            section.classList.add('highlight', 'highlight-get-started');
+        } else if (sectionId === 'learn-more-section') {
+            section.classList.add('highlight', 'highlight-learn-more');
+        }
+
+        setTimeout(function () {
+            section.classList.remove('highlight', 'highlight-get-started', 'highlight-learn-more');
+        }, 3000);
+    }
+</script>
+</body>
+</html>
