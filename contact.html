@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health Connect - Contact Us</title>
-    <div class="g-recaptcha" data-sitekey="6Le_Bc8qAAAAACgZME18IZfrzk-rtRljWMqnGFR-"></div>
-dd869d7b1cdef775012bb10d4800b951b58b21e9
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
@@ -356,7 +354,7 @@ dd869d7b1cdef775012bb10d4800b951b58b21e9
 
 <div class="contact-form">
     <h2>Send Us a Message</h2>
-    <form action="process_form.php" method="post">
+    <form id="contactForm" action="" method="post">
         <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
@@ -384,14 +382,40 @@ dd869d7b1cdef775012bb10d4800b951b58b21e9
         navLinks.classList.toggle('active');
     }
 
-    document.querySelector('form').onsubmit = function(event) {
-        const email = document.getElementById('email').value;
-        const name = document.getElementById('name').value;
-        if (!name || !email) {
-            alert('Please fill out all required fields.');
-            event.preventDefault();
-        }
-    }
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const token = grecaptcha.getResponse();
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value,
+            recaptcha: token
+        };
+
+        fetch('http://localhost:5000/submit-contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                alert('Message sent successfully!');
+                document.getElementById('contactForm').reset();
+                grecaptcha.reset();
+            } else {
+                alert('Error: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again.');
+        });
+    });
+</script>
 </script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
